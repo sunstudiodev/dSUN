@@ -1,0 +1,35 @@
+cd "D:\LAPTRINH\ASP.NET\HelloApp"
+
+dotnet publish -c Release
+
+copy "D:\LAPTRINH\ASP.NET\HelloApp\HelloApp\Dockerfile" "D:\LAPTRINH\ASP.NET\HelloApp\HelloApp\bin\Release\netcoreapp3.1\publish\Dockerfile"
+
+
+
+docker build -t lovehelhhhh "D:\\LAPTRINH\\ASP.NET\\HelloApp\\HelloApp\\bin\\Release\\netcoreapp3.1\\publish"
+
+docker run -d -p 80:80 lovehelhhhh
+
+docker tag lovehelhhhh registry.heroku.com/lovehelhhhh/web
+
+cd "D:\LAPTRINH\ASP.NET\HelloApp\HelloApp\bin\Release\netcoreapp3.1\publish"
+
+heroku container:push web -a lovehelhhhh
+
+heroku container:release web -a lovehelhhhh
+
+
+https://jakubwajs.wordpress.com/2020/01/31/deploying-asp-net-core-3-1-web-api-to-heroku-with-docker/
+
+
+Ke hoach viet chuong trinh trien khai ASP.NET Project tu dong len heroku
+
+Kiem tra Docker Desktop dang chay
+
+Chon dunog dan cua thu muc du an, phien ban net core 
+
+Tham khao them cac lenh docker
+
+https://stackoverflow.com/questions/57108228/how-to-check-if-docker-is-running-on-windows
+
+https://www.codenotary.com/blog/extremely-useful-docker-commands/
